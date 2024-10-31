@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "79194741659",
+    "project_id": "memeoteca-v1",
+    "storage_bucket": "memeoteca-v1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79194741659:android:c0df01efdd407aa9b59f3e",
+        "android_client_info": {
+          "package_name": "com.memeotecav1.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3wyGjKteyxeCYQvbNj4lH9-1EsNB29_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79194741659:android:f01ec82c8fbd9b6ab59f3e",
+        "android_client_info": {
+          "package_name": "com.memeotecav1.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3wyGjKteyxeCYQvbNj4lH9-1EsNB29_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
