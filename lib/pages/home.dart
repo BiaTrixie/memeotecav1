@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                  'Hello👋',
+                  'Olá👋',
                   style: GoogleFonts.raleway(
                     textStyle: const TextStyle(
                       color: Colors.black,
@@ -59,7 +59,7 @@ class Home extends StatelessWidget {
       onPressed: () async {
         await AuthService().signout(context: context);
       },
-      child: const Text("Sign Out"),
+      child: const Text("Sair"),
     );
   }
 }

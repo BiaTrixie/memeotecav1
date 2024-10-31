@@ -48,7 +48,7 @@ class Login extends StatelessWidget {
             children: [
               Center(
                 child: Text(
-                  'Hello Again',
+                  'Olá novamente',
                   style: GoogleFonts.raleway(
                     textStyle: const TextStyle(
                       color: Colors.black,
@@ -77,7 +77,7 @@ class Login extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Email Address',
+          'Email',
           style: GoogleFonts.raleway(
             textStyle: const TextStyle(
               color: Colors.black,
@@ -91,7 +91,7 @@ class Login extends StatelessWidget {
           controller: _emailController,
           decoration: InputDecoration(
             filled: true,
-            hintText: 'mahdiforwork@gmail.com',
+            hintText: 'seuemail@gmail.com',
             hintStyle: const TextStyle(
               color: Color(0xff6A6A6A),
               fontWeight: FontWeight.normal,
@@ -114,7 +114,7 @@ class Login extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Password',
+          'Senha',
           style: GoogleFonts.raleway(
             textStyle: const TextStyle(
               color: Colors.black,
@@ -157,7 +157,7 @@ class Login extends StatelessWidget {
           context: context
         );
       },
-      child: const Text("Sign In"),
+      child: const Text("Entrar"),
     );
   }
 
@@ -169,7 +169,7 @@ class Login extends StatelessWidget {
         text: TextSpan(
           children: [
             const TextSpan(
-                text: "New User? ",
+                text: "Novo usuario? ",
                 style: TextStyle(
                   color: Color(0xff6A6A6A),
                   fontWeight: FontWeight.normal,
@@ -177,7 +177,7 @@ class Login extends StatelessWidget {
                 ),
               ),
               TextSpan(
-                text: "Create Account",
+                text: "Criar conta",
                 style: const TextStyle(
                     color: Color(0xff1A1D1E),
                     fontWeight: FontWeight.normal,

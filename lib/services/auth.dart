@@ -44,9 +44,6 @@ class AuthService {
         fontSize: 14.0,
       );
     }
-    catch(e){
-
-    }
 
   }
 
@@ -86,9 +83,6 @@ class AuthService {
         textColor: Colors.white,
         fontSize: 14.0,
       );
-    }
-    catch(e){
-
     }
 
   }

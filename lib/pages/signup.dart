@@ -28,7 +28,7 @@ class Signup extends StatelessWidget {
             children: [
               Center(
                 child: Text(
-                  'Register Account',
+                  'Criar conta',
                   style: GoogleFonts.raleway(
                     textStyle: const TextStyle(
                       color: Colors.black,
@@ -58,7 +58,7 @@ class Signup extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Email Address',
+          'Email',
           style: GoogleFonts.raleway(
             textStyle: const TextStyle(
               color: Colors.black,
@@ -72,7 +72,7 @@ class Signup extends StatelessWidget {
           controller: _emailController,
           decoration: InputDecoration(
             filled: true,
-            hintText: 'mahdiforwork@gmail.com',
+            hintText: 'seuemail@gmail.com',
             hintStyle: const TextStyle(
               color: Color(0xff6A6A6A),
               fontWeight: FontWeight.normal,
@@ -95,7 +95,7 @@ class Signup extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Password',
+          'Senha',
           style: GoogleFonts.raleway(
             textStyle: const TextStyle(
               color: Colors.black,
@@ -138,7 +138,7 @@ class Signup extends StatelessWidget {
           context: context
         );
       },
-      child: const Text("Sign Up"),
+      child: const Text("Criar"),
     );
   }
 
@@ -150,7 +150,7 @@ class Signup extends StatelessWidget {
         text: TextSpan(
           children: [
             const TextSpan(
-                text: "Already Have Account? ",
+                text: "Já tem uma conta? ",
                 style: TextStyle(
                   color: Color(0xff6A6A6A),
                   fontWeight: FontWeight.normal,
@@ -158,7 +158,7 @@ class Signup extends StatelessWidget {
                 ),
               ),
               TextSpan(
-                text: "Log In",
+                text: "Entrar",
                 style: const TextStyle(
                     color: Color(0xff1A1D1E),
                     fontWeight: FontWeight.normal,
