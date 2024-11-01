@@ -1,43 +1,42 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirestoreService {
-  //get collection of todo
-  final CollectionReference todos = FirebaseFirestore.instance.collection('todos');
+  // Referência à coleção de memes
+  final CollectionReference memes = FirebaseFirestore.instance.collection('memes');
   
-  //CREATE
-  Future<void> addTask(String task) {
-    return todos.add({
-      'createdOn': Timestamp.now(),
-      'isDone': false,
-      'task': task,
+  // CREATE - Adicionar um novo meme
+  Future<void> addMeme({
+    required String title,
+    required String description,
+    required String imageUrl,
+    required String uploaderId,
+  }) {
+    return memes.add({
+      'title': title,
+      'description': description,
+      'imageUrl': imageUrl,
+      'uploaderId': uploaderId,
+      'uploadDate': Timestamp.now(),
       'updateOn': Timestamp.now(),
     });
   }
 
-  //READ
-  Stream<QuerySnapshot> getTaskStream() {
-    final tasksStream = todos.orderBy('createdOn', descending: true).snapshots();
-    return tasksStream;
+  // READ - Obter um stream de memes ordenado pela data de upload
+  Stream<QuerySnapshot> getMemeStream() {
+    return memes.orderBy('uploadDate', descending: true).snapshots();
   }
 
-  //UPDATE
-  Future<void> updateTask(String docID, String newTask) {
-    return todos.doc(docID).update({
-      'task': newTask,
+  // UPDATE - Atualizar dados de um meme específico
+  Future<void> updateMeme(String docID, String newDescription, String newTitle) {
+    return memes.doc(docID).update({
+      'title': newTitle,
+      'description': newDescription,
       'updateOn': Timestamp.now(),
     });
   }
 
-  //UPDATE task status (isDone)
-  Future<void> updateTaskStatus(String docID, bool isDone) {
-    return todos.doc(docID).update({
-      'isDone': isDone,
-      'updateOn': Timestamp.now(),
-    });
-  }
-
-  //DELETE
-  Future<void> deletedTask(String docID) {
-    return todos.doc(docID).delete();
+  // DELETE - Deletar um meme pelo ID do documento
+  Future<void> deleteMeme(String docID) {
+    return memes.doc(docID).delete();
   }
 }

@@ -1,4 +1,3 @@
-
 import 'package:memeotecav1/pages/signup.dart';
 import 'package:memeotecav1/services/auth.dart';
 import 'package:flutter/gestures.dart';
@@ -14,31 +13,13 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black, // Fundo preto
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: _signup(context),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         toolbarHeight: 100,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Container(
-            margin: const EdgeInsets.only(left: 10),
-            decoration: const BoxDecoration(
-              color: Color(0xffF7F7F9),
-              shape: BoxShape.circle
-            ),
-            child: const Center(
-              child: Icon(
-                Icons.arrow_back_ios_new_rounded,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -46,23 +27,28 @@ class Login extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+                Image.network(
+                  'https://i.postimg.cc/BvWvc8Kb/Memeoteca-logo-1.png', 
+                  height: 300,
+                  width: 300,),
+              const SizedBox(height: 20),
               Center(
                 child: Text(
                   'Olá novamente',
                   style: GoogleFonts.raleway(
                     textStyle: const TextStyle(
-                      color: Colors.black,
+                      color: Colors.white, // Texto branco
                       fontWeight: FontWeight.bold,
                       fontSize: 32
                     )
                   ),
                 ),
               ),
-              const SizedBox(height: 80,),
+              const SizedBox(height: 80),
                _emailAddress(),
-               const SizedBox(height: 20,),
+               const SizedBox(height: 20),
                _password(),
-               const SizedBox(height: 50,),
+               const SizedBox(height: 50),
                _signin(context),
             ],
           ),
@@ -80,13 +66,13 @@ class Login extends StatelessWidget {
           'Email',
           style: GoogleFonts.raleway(
             textStyle: const TextStyle(
-              color: Colors.black,
+              color: Colors.white, // Texto branco
               fontWeight: FontWeight.normal,
               fontSize: 16
             )
           ),
         ),
-        const SizedBox(height: 16,),
+        const SizedBox(height: 16),
         TextField(
           controller: _emailController,
           decoration: InputDecoration(
@@ -97,7 +83,7 @@ class Login extends StatelessWidget {
               fontWeight: FontWeight.normal,
               fontSize: 14
             ),
-            fillColor: const Color(0xffF7F7F9) ,
+            fillColor: const Color(0xffF7F7F9),
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(14)
@@ -117,19 +103,19 @@ class Login extends StatelessWidget {
           'Senha',
           style: GoogleFonts.raleway(
             textStyle: const TextStyle(
-              color: Colors.black,
+              color: Colors.white, // Texto branco
               fontWeight: FontWeight.normal,
               fontSize: 16
             )
           ),
         ),
-        const SizedBox(height: 16,),
+        const SizedBox(height: 16),
         TextField(
           obscureText: true,
           controller: _passwordController,
           decoration: InputDecoration(
             filled: true,
-            fillColor: const Color(0xffF7F7F9) ,
+            fillColor: const Color(0xffF7F7F9),
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(14)
@@ -143,7 +129,7 @@ class Login extends StatelessWidget {
   Widget _signin(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xff0D6EFD),
+        backgroundColor: const Color.fromARGB(255, 244, 67, 54),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14),
         ),
@@ -157,7 +143,10 @@ class Login extends StatelessWidget {
           context: context
         );
       },
-      child: const Text("Entrar"),
+      child: const Text(
+        "Entrar",
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 
@@ -171,7 +160,7 @@ class Login extends StatelessWidget {
             const TextSpan(
                 text: "Novo usuario? ",
                 style: TextStyle(
-                  color: Color(0xff6A6A6A),
+                  color: Color.fromARGB(255, 255, 255, 255),
                   fontWeight: FontWeight.normal,
                   fontSize: 16
                 ),
@@ -179,7 +168,7 @@ class Login extends StatelessWidget {
               TextSpan(
                 text: "Criar conta",
                 style: const TextStyle(
-                    color: Color(0xff1A1D1E),
+                    color: Color.fromARGB(255, 40, 24, 255),
                     fontWeight: FontWeight.normal,
                     fontSize: 16
                   ),
