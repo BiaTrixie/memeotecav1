@@ -121,26 +121,34 @@ class Signup extends StatelessWidget {
     );
   }
 
-  Widget _signup(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xff0D6EFD),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
-          ),
-          minimumSize: const Size(double.infinity, 60),
-          elevation: 0,
+Widget _signup(BuildContext context) {
+  return ElevatedButton(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: const Color.fromARGB(255, 244, 67, 54), 
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
       ),
-      onPressed: () async {
-       await AuthService().signup(
-          email: _emailController.text,
-          password: _passwordController.text,
-          context: context
-        );
-      },
-      child: const Text("Criar"),
-    );
-  }
+      minimumSize: const Size(double.infinity, 60),
+      elevation: 0,
+    ),
+    onPressed: () async {
+      await AuthService().signup(
+        email: _emailController.text,
+        password: _passwordController.text,
+        context: context,
+      );
+    },
+    child: const Text(
+      "Criar",
+      style: TextStyle(
+        color: Colors.white, 
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
+      ),
+    ),
+  );
+}
+
 
   Widget _signin(BuildContext context) {
     return Padding(

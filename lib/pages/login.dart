@@ -13,34 +13,30 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, // Fundo preto
+      backgroundColor: Colors.white, 
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: _signup(context),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        toolbarHeight: 100,
-      ),
       body: SafeArea(
         child: SingleChildScrollView(
-         padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 16),
+         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
                 Image.network(
                   'https://i.postimg.cc/BvWvc8Kb/Memeoteca-logo-1.png', 
-                  height: 300,
-                  width: 300,),
+                  height: 400,
+                  width: 400,
+                ),
               const SizedBox(height: 20),
               Center(
                 child: Text(
                   'Olá novamente',
                   style: GoogleFonts.raleway(
                     textStyle: const TextStyle(
-                      color: Colors.white, // Texto branco
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 32
-                    )
+                      fontSize: 32,
+                    ),
                   ),
                 ),
               ),
@@ -66,10 +62,10 @@ class Login extends StatelessWidget {
           'Email',
           style: GoogleFonts.raleway(
             textStyle: const TextStyle(
-              color: Colors.white, // Texto branco
+              color: Colors.black, 
               fontWeight: FontWeight.normal,
-              fontSize: 16
-            )
+              fontSize: 16,
+            ),
           ),
         ),
         const SizedBox(height: 16),
@@ -81,13 +77,13 @@ class Login extends StatelessWidget {
             hintStyle: const TextStyle(
               color: Color(0xff6A6A6A),
               fontWeight: FontWeight.normal,
-              fontSize: 14
+              fontSize: 14,
             ),
             fillColor: const Color(0xffF7F7F9),
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(14)
-            )
+              borderRadius: BorderRadius.circular(14),
+            ),
           ),
         )
       ],
@@ -103,10 +99,10 @@ class Login extends StatelessWidget {
           'Senha',
           style: GoogleFonts.raleway(
             textStyle: const TextStyle(
-              color: Colors.white, // Texto branco
+              color: Colors.black,
               fontWeight: FontWeight.normal,
-              fontSize: 16
-            )
+              fontSize: 16,
+            ),
           ),
         ),
         const SizedBox(height: 16),
@@ -118,8 +114,8 @@ class Login extends StatelessWidget {
             fillColor: const Color(0xffF7F7F9),
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(14)
-            )
+              borderRadius: BorderRadius.circular(14),
+            ),
           ),
         )
       ],
@@ -129,7 +125,7 @@ class Login extends StatelessWidget {
   Widget _signin(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color.fromARGB(255, 244, 67, 54),
+        backgroundColor: const Color.fromARGB(255, 244, 67, 54), 
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14),
         ),
@@ -145,7 +141,7 @@ class Login extends StatelessWidget {
       },
       child: const Text(
         "Entrar",
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.white), 
       ),
     );
   }
@@ -158,19 +154,19 @@ class Login extends StatelessWidget {
         text: TextSpan(
           children: [
             const TextSpan(
-                text: "Novo usuario? ",
+                text: "Novo usuário? ",
                 style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
+                  color: Colors.black,
                   fontWeight: FontWeight.normal,
-                  fontSize: 16
+                  fontSize: 16,
                 ),
               ),
               TextSpan(
                 text: "Criar conta",
                 style: const TextStyle(
-                    color: Color.fromARGB(255, 40, 24, 255),
-                    fontWeight: FontWeight.normal,
-                    fontSize: 16
+                    color: Color.fromARGB(255, 244, 67, 54), 
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
                   ),
                   recognizer: TapGestureRecognizer()..onTap = () {
                     Navigator.push(

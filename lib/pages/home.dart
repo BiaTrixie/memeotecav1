@@ -1,9 +1,9 @@
-import 'package:memeotecav1/services/auth.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:memeotecav1/services/firestore.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:memeotecav1/pages/addMeme.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.red,
         elevation: 0,
@@ -50,7 +50,7 @@ class Home extends StatelessWidget {
                 'Nenhum meme encontrado',
                 style: GoogleFonts.raleway(
                   textStyle: const TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
                   ),
@@ -61,8 +61,14 @@ class Home extends StatelessWidget {
 
           final memes = snapshot.data!.docs;
 
-          return ListView.builder(
+          return GridView.builder(
             padding: const EdgeInsets.all(16),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, 
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              childAspectRatio: 0.75, 
+            ),
             itemCount: memes.length,
             itemBuilder: (context, index) {
               final meme = memes[index];
@@ -70,46 +76,47 @@ class Home extends StatelessWidget {
               final title = meme['title'] ?? 'Sem título';
 
               return Card(
-                color: Colors.grey[900],
+                color: Colors.grey[100],
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
-                margin: const EdgeInsets.symmetric(vertical: 10),
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (imageUrl.isNotEmpty)
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.network(
-                            imageUrl,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                            height: 200,
-                            errorBuilder: (context, error, stackTrace) {
-                              return const Icon(
-                                Icons.broken_image,
-                                color: Colors.white,
-                                size: 50,
-                              );
-                            },
-                          ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (imageUrl.isNotEmpty)
+                      ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(12),
+                          topRight: Radius.circular(12),
                         ),
-                      const SizedBox(height: 10),
-                      Text(
+                        child: Image.network(
+                          imageUrl,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: 150,
+                          errorBuilder: (context, error, stackTrace) {
+                            return const Icon(
+                              Icons.broken_image,
+                              color: Colors.black,
+                              size: 50,
+                            );
+                          },
+                        ),
+                      ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
                         title,
                         style: GoogleFonts.raleway(
                           textStyle: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 16,
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               );
             },
@@ -118,8 +125,11 @@ class Home extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 244, 67, 54),
-        onPressed: () async {
-          // Implementação do botão de ação flutuante para adicionar memes
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddMemeScreen()),
+          );
         },
         child: const Icon(Icons.add),
       ),
